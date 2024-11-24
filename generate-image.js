@@ -17,7 +17,7 @@ const context = canvas.getContext('2d');
 const now = new Date();
 const hours = now.getHours().toString().padStart(2, '0');
 const minutes = now.getMinutes().toString().padStart(2, '0');
-const time = ${hours}:${minutes};
+const time = `${hours}:${minutes}`;  // Corrected this line
 
 // Background
 context.fillStyle = '#ffffff'; // White background
@@ -28,10 +28,10 @@ context.fillStyle = '#000000'; // Black text
 context.font = 'bold 70px Arial';
 context.textAlign = 'center';
 context.textBaseline = 'middle';
-context.fillText(Time: ${time}, width / 2, height / 2);
+context.fillText(`Time: ${time}`, width / 2, height / 2);
 
 // Save the image
 const buffer = canvas.toBuffer('image/png');
-fs.writeFileSync(${outputDir}/image.png, buffer);
+fs.writeFileSync(`${outputDir}/image.png`, buffer);
 
-console.log(Image generated with time: ${time});
+console.log(`Image generated with time: ${time}`);
