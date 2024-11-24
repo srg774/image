@@ -37,4 +37,4 @@ jobs:
         run: |
           git add docs/image.png
           git commit -m "Update time image"
-          git push https://github.com/${{ github.repository }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
