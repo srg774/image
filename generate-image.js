@@ -24,15 +24,15 @@ loadImage('./images/template-image.png').then((image) => {
 
   // Set up font for the date text
   context.fillStyle = '#FFFFFF'; // White text
-  context.font = 'bold 20px Arial';  // Set font size and style
+  context.font = 'bold 30px Arial';  // Increase font size for larger display
   context.textAlign = 'center';  // Center the text horizontally
   context.textBaseline = 'middle';  // Center the text vertically
 
-  // Box dimensions for the date
-  const boxWidth = 125;
-  const boxHeight = 30;
-  const x = 20 + (boxWidth / 2);  // Center horizontally in the box
-  const y = 20 + (boxHeight / 2);  // Center vertically in the 30px tall box
+  // Box dimensions for the date (aligned right)
+  const boxWidth = 165;  // 40px wider than before
+  const boxHeight = 90;  // 3x taller than before
+  const x = width - 20 - (boxWidth / 2);  // Align the box to the right, with padding
+  const y = 20 + (boxHeight / 2);  // Center vertically in the box
 
   // Draw the black background for the date text box (ensure visibility)
   context.fillStyle = '#000000';  // Black background
