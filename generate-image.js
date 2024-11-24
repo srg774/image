@@ -1,37 +1,41 @@
 const fs = require('fs');
-const { createCanvas } = require('canvas');
+const { createCanvas, loadImage } = require('canvas');
 
-// Ensure the docs directory exists
-const outputDir = './docs';
-if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-}
+// Image dimensions
+const width = 500;  // Image width
+const height = 300;  // Image height
 
-// Set image dimensions
-const width = 800;
-const height = 400;
+// Create a canvas for drawing
 const canvas = createCanvas(width, height);
 const context = canvas.getContext('2d');
 
-// Get the current time
-const now = new Date();
-const hours = now.getHours().toString().padStart(2, '0');
-const minutes = now.getMinutes().toString().padStart(2, '0');
-const time = `${hours}:${minutes}`;  // Corrected this line
+// Load the static template image (your background image)
+loadImage('./images/template-image.png').then((image) => {
+  // Draw the template image onto the canvas
+  context.drawImage(image, 0, 0, width, height);
 
-// Background
-context.fillStyle = '#ffffff'; // White background
-context.fillRect(0, 0, width, height);
+  // Get the current date (this will be the overlayed text)
+  const now = new Date();
+  const date = now.toLocaleDateString();  // Format: "11/24/2024"
 
-// Text
-context.fillStyle = '#000000'; // Black text
-context.font = 'bold 70px Arial';
-context.textAlign = 'center';
-context.textBaseline = 'middle';
-context.fillText(`Time: ${time}`, width / 2, height / 2);
+  // Set up font for the date text
+  context.fillStyle = '#000000'; // Black text
+  context.font = 'bold 20px Arial';  // Set font size and style
+  context.textAlign = 'center';  // Center the text horizontally
+  context.textBaseline = 'middle';  // Center the text vertically
 
-// Save the image
-const buffer = canvas.toBuffer('image/png');
-fs.writeFileSync(`${outputDir}/image.png`, buffer);
+  // Position the text in the 125px wide, 30px tall box (20px down from the top)
+  const boxWidth = 125;
+  const boxHeight = 30;
+  const x = 20 + (boxWidth / 2);  // Center horizontally in the box
+  const y = 20 + (boxHeight / 2);  // Center vertically in the 30px tall box, 20px down from the top
 
-console.log(`Image generated with time: ${time}`);
+  // Draw the date text on top of the static image
+  context.fillText(date, x, y);
+
+  // Save the generated image to the 'docs' folder
+  const buffer = canvas.toBuffer('image/png');
+  fs.writeFileSync('./docs/image.png', buffer);
+
+  console.log(`Image generated with date: ${date}`);
+});
