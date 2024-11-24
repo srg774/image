@@ -29,7 +29,7 @@ loadImage('./images/template-image.png').then((image) => {
 
   // You can change `verticalOffset` to adjust the position of the date box vertically
   // For example, you can set this dynamically:
-  // verticalOffset = 0;  // Set it to a new value based on your requirement.
+  // verticalOffset = 20;  // Set it to a new value based on your requirement.
 
   // Scale the font size with box height (keeping it proportional)
   const fontSize = Math.floor(boxHeight * 0.3);  // Font size will scale based on box height (30% of box height)
