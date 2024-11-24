@@ -23,13 +23,13 @@ loadImage('./images/template-image.png').then((image) => {
   });
 
   // Adjustable Parameters
-  const boxWidth = 145;  // Width of the date box (adjustable)
-  const boxHeight = 50;  // Height of the date box (adjustable)
-  let verticalOffset = 60; // Initial vertical offset (adjustable)
+  const boxWidth = 165;  // Width of the date box (adjustable)
+  const boxHeight = 90;  // Height of the date box (adjustable)
+  let verticalOffset = 60; // Adjusted vertical offset (moved up by 40 pixels)
 
-  // You can change `verticalOffset` to adjust the position of the date box vertically
-  // For example, you can set this dynamically:
-  // verticalOffset = 20;  // Set it to a new value based on your requirement.
+  // You can now experiment with changing `verticalOffset` to move it up/down
+  // For example, set it to 60 to move the box higher:
+  // verticalOffset = 60;
 
   // Scale the font size with box height (keeping it proportional)
   const fontSize = Math.floor(boxHeight * 0.3);  // Font size will scale based on box height (30% of box height)
