@@ -11,6 +11,9 @@ jobs:
   update-image:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write  # Grant write permissions to contents (required to push changes)
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
