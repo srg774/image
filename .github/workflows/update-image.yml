@@ -38,6 +38,6 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git add docs/image.png  # Add only the updated image
-          git commit -m "Update time image"
+          git add docs/image.png  # Only add the updated image
+          git commit -m "Update time image" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
