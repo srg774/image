@@ -22,19 +22,26 @@ loadImage('./images/template-image.png').then((image) => {
     day: 'numeric',
   });
 
+  // Adjustable Parameters
+  const boxWidth = 165;  // Width of the date box (adjustable)
+  const boxHeight = 90;  // Height of the date box (adjustable)
+  const padding = 20;    // Padding from the right edge (adjustable)
+  const verticalOffset = 60; // Vertical distance from the top edge (adjustable)
+
+  // Scale the font size with box height (keeping it proportional)
+  const fontSize = Math.floor(boxHeight * 0.3);  // Font size will scale based on box height (30% of box height)
+
   // Set up font for the date text
   context.fillStyle = '#FFFFFF'; // White text
-  context.font = 'bold 30px Arial';  // Increase font size for larger display
+  context.font = `bold ${fontSize}px Arial`;  // Dynamically set font size
   context.textAlign = 'center';  // Center the text horizontally
   context.textBaseline = 'middle';  // Center the text vertically
 
-  // Box dimensions for the date (aligned right)
-  const boxWidth = 165;  // 40px wider than before
-  const boxHeight = 90;  // 3x taller than before
-  const x = width - 20 - (boxWidth / 2);  // Align the box to the right, with padding
-  const y = 20 + (boxHeight / 2);  // Center vertically in the box
+  // Box position for the date (aligned right, vertical offset)
+  const x = width - padding - (boxWidth / 2);  // Align the box to the right with padding
+  const y = verticalOffset + (boxHeight / 2);  // Position the box with vertical offset
 
-  // Draw the black background for the date text box (ensure visibility)
+  // Draw the black background for the date text box
   context.fillStyle = '#000000';  // Black background
   context.fillRect(x - (boxWidth / 2), y - (boxHeight / 2), boxWidth, boxHeight);
 
