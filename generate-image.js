@@ -23,16 +23,12 @@ loadImage('./images/template-image.png').then((image) => {
   });
 
   // Adjustable Parameters
-  const boxWidth = 165;  // Width of the date box (adjustable)
-  const boxHeight = 90;  // Height of the date box (adjustable)
-  let verticalOffset = 60; // Adjusted vertical offset (moved up by 40 pixels)
-
-  // You can now experiment with changing `verticalOffset` to move it up/down
-  // For example, set it to 60 to move the box higher:
-  // verticalOffset = 60;
+  const boxWidth = 135;  // Width of the date box (adjusted to 30 pixels narrower)
+  const boxHeight = 60;  // Height of the date box (adjusted to 30 pixels shorter)
+  let verticalOffset = 15; // Adjusted vertical offset (moved up by 45 pixels)
 
   // Scale the font size with box height (keeping it proportional)
-  const fontSize = Math.floor(boxHeight * 0.3);  // Font size will scale based on box height (30% of box height)
+  const fontSize = Math.floor(boxHeight * 0.5);  // Font size will scale based on box height (50% of box height)
 
   // Set up font for the date text
   context.fillStyle = '#FFFFFF'; // White text
@@ -40,8 +36,8 @@ loadImage('./images/template-image.png').then((image) => {
   context.textAlign = 'center';  // Center the text horizontally
   context.textBaseline = 'middle';  // Center the text vertically
 
-  // Box position for the date (fully aligned to the left, no padding)
-  const x = boxWidth / 2;  // Align the box to the left, but with its width centered from the edge
+  // Box position for the date (aligned to the left)
+  const x = boxWidth / 2;  // Position the box aligned to the left
   const y = verticalOffset + (boxHeight / 2);  // Position the box with vertical offset
 
   // Draw the black background for the date text box
