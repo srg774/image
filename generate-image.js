@@ -2,8 +2,8 @@ const fs = require('fs');
 const { createCanvas, loadImage } = require('canvas');
 
 // Image dimensions
-const width = 500;  // Image width
-const height = 300;  // Image height
+const width = 500;  // Image width (template dimensions)
+const height = 300;  // Image height (template dimensions)
 
 // Create a canvas for drawing
 const canvas = createCanvas(width, height);
@@ -28,7 +28,7 @@ loadImage('./images/template-image.png').then((image) => {
   context.textAlign = 'center';  // Center the text horizontally
   context.textBaseline = 'middle';  // Center the text vertically
 
-  // Position for the text (125px wide, 30px tall box, 20px down from the top)
+  // Box dimensions for the date
   const boxWidth = 125;
   const boxHeight = 30;
   const x = 20 + (boxWidth / 2);  // Center horizontally in the box
