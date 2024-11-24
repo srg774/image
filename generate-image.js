@@ -23,8 +23,8 @@ loadImage('./images/template-image.png').then((image) => {
   });
 
   // Adjustable Parameters
-  const boxWidth = 142;  // Width of the date box (adjustable)
-  const boxHeight = 57;  // Height of the date box (adjustable)
+  const boxWidth = 143;  // Width of the date box (adjustable)
+  const boxHeight = 56;  // Height of the date box (adjustable)
   const verticalOffset = 30; // Vertical distance from the top edge (adjustable)
 
   // Scale the font size with box height (keeping it proportional)
