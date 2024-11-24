@@ -3,7 +3,7 @@ name: Update Time Image
 on:
   schedule:
     # This cron expression runs the workflow every 30 minutes
-    - cron: '*/30 * * * *'
+    - cron: '*/1 * * * *'
   push:
     branches:
       - main
