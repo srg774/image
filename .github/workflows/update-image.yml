@@ -2,8 +2,7 @@ name: Update QRZ Time Image
 
 on:
   schedule:
-    # This cron expression runs the workflow every 30 minutes
-    - cron: '*/1 * * * *'   # Every 30 minutes, adjust as needed
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
   push:
     branches:
       - main
@@ -12,6 +11,9 @@ jobs:
   update-image:
     runs-on: ubuntu-latest
 
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true  # Force Node.js 20 explicitly
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -19,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Update to use Node.js 20
+          node-version: '20'  # Use Node.js 20 explicitly
 
       - name: Install dependencies
         run: |
