@@ -1,0 +1,38 @@
+name: Update Time Image
+
+on:
+  schedule:
+    # This cron expression runs the workflow every 30 minutes
+    - cron: '*/30 * * * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  update-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          npm install canvas
+
+      - name: Run script to generate image
+        run: |
+          node generate-image.js  # Replace with your script file name if needed
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your-email@example.com"
+          git add docs/image.png
+          git commit -m "Update time image"
+          git push
