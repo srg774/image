@@ -31,11 +31,6 @@ jobs:
         run: |
           node generate-image.js  # Runs your script to generate the image
 
-      - name: Check if image is generated
-        run: |
-          ls -l docs/image.png  # List the image file to confirm it's there
-          cat docs/image.png  # Optionally check if it's not empty
-
       - name: Configure Git
         run: |
           git config --global user.name "GitHub Actions"
@@ -43,7 +38,6 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git add docs/image.png  # Add only the updated image
-          git status  # Verify only the image is staged for commit
+          git add docs/image.png
           git commit -m "Update time image"
-        
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
