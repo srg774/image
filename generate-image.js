@@ -23,9 +23,9 @@ loadImage('./images/template-image.png').then((image) => {
   });
 
   // Adjustable Parameters
-  const boxWidth = 145;  // Width of the date box (adjustable)
+  const boxWidth = 125;  // Width of the date box (adjustable)
   const boxHeight = 70;  // Height of the date box (adjustable)
-  let verticalOffset = 60; // Initial vertical offset (adjustable)
+  let verticalOffset = 20; // Initial vertical offset (adjustable)
 
   // You can change `verticalOffset` to adjust the position of the date box vertically
   // For example, you can set this dynamically:
