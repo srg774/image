@@ -2,7 +2,7 @@ name: Update QRZ Time Image
 
 on:
   schedule:
-    - cron: '30 0 * * *'  # Runs once a day at 00:05 UTC
+    - cron: '40 0 * * *'  # Runs once a day at 00:05 UTC
   push:
     branches:
       - main
